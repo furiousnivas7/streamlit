@@ -21,7 +21,7 @@ def save_data(file_path, data):
 
 # Load existing data
 data = load_data(json_file_path)
-
+download=st.button('Download JSON Data')
 # Input fields
 firstname = st.text_input("Firstname", placeholder="Enter your first name", max_chars=10)
 secondname = st.text_input("Secondname", placeholder="Enter your second name", max_chars=10)
@@ -53,6 +53,7 @@ if button:
         st.bar_chart(df["Exam Marks"])
 
 # Button to download JSON file
-if st.button('Download JSON Data'):
+if download:
     with open(json_file_path, "r") as file:
         st.download_button(label="Download Data as JSON", data=file, file_name='student_data.json', mime='application/json')
+
